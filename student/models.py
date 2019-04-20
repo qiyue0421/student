@@ -28,3 +28,13 @@ class Student(models.Model):
 
     class Meta:
         verbose_name = verbose_name_plural = '学员信息'
+
+    # 把数据获取逻辑封装到Model层，提供更语义化的接口，views代码块中只需要调用这个类方法即可
+    @classmethod
+    def get_all(cls):
+        return cls.objects.all()
+
+    # 展示sex这个字段的中文显示
+    @property   # 将方法变成属性
+    def sex_show(self):
+        return dict(self.SEX_ITEMS)[self.sex]  # 将元组转为字典，通过键（数字）访问值（中文）
