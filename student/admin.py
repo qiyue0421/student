@@ -19,5 +19,5 @@ class StudentAdmin(admin.ModelAdmin):
     )
 
 
-# 注册模型
+# 注册
 admin.site.register(Student, StudentAdmin)
